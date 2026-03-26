@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import display, home,register,login
+from .views import delete, display, home,register,login, update
 
 urlpatterns = [
     path('',home,name='home'),
     path('register/',register,name='reg'),
     path('login/',login,name='login'),
     path('display/',display,name='display'),
+    path('update/<int:id>/',update,name='update'),
+    path('delete/<int:id>/',delete,name='delete'),
 ]

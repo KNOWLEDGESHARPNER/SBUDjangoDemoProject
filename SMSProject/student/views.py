@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from .models import Student
 
@@ -43,6 +43,40 @@ def display(request):
     #Logic to fetch the students records from database 
     students=Student.objects.all()#fetching all records from Student table
     return render(request,'student/display.html',{'stu_objs':students})
+
+def update(request,id):
+    if request.method=='POST':
+        name=request.POST['sname']
+        mob=request.POST['mob']
+        email=request.POST['email']
+        usn=request.POST['usn']
+        college=request.POST['college']
+        degree=request.POST['degree']
+        branch=request.POST['branch']
+        sem=request.POST['sem']
+
+        #Logic to update the data in database can be added here
+        stu_obj=Student.objects.get(id=id)#fetching the record based on id from Student table
+        stu_obj.name=name
+        stu_obj.mob=mob
+        stu_obj.email=email
+        stu_obj.college=college
+        stu_obj.degree=degree
+        stu_obj.branch=branch
+        stu_obj.sem=sem
+
+        #ORM(Object Relational Mapping) methods to update the data in database
+        stu_obj.save()
+        return redirect('display')
+    else:
+        stu_obj=Student.objects.get(id=id)#fetching the record based on id from Student table
+        return render(request,'student/update.html',{'stu_obj':stu_obj})
+
+def delete(request,id):
+    #Logic to delete the record from database can be added here
+    stu_obj=Student.objects.get(id=id)#fetching the record based on id from Student table
+    stu_obj.delete()#deleting the record from database
+    return redirect('display')
 
 def login(request):
     if request.method=='POST':

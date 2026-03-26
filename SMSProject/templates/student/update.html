@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block title %}Student Update{% endblock %}
+{% block content %}
+    <h1>Student Update page</h1>
+    <form method="post">
+        {% csrf_token %}
+        Name:<input type="text" id="name" name="sname" value="{{ stu_obj.name }}"><br>
+        Mob:<input type="tel" id="mob" name="mob" value="{{ stu_obj.mob }}"><br>
+        Email:<input type="email" id="email" name="email" value="{{ stu_obj.email }}"><br>
+        USN:<input type="text" id="usn" name="usn" value="{{ stu_obj.usn }}"><br>
+        college:<input type="text" id="college" name="college" value="{{ stu_obj.college }}"><br>
+        degree:<input type="text" id="degree" name="degree" value="{{ stu_obj.degree }}"><br>
+        Branch:<input type="text" id="branch" name="branch" value="{{ stu_obj.branch }}"><br>
+        sem:<input type="number" id="sem" name="sem" value="{{ stu_obj.sem }}"><br>
+        <input type="submit" value="Update">
+
+    </form>
+{% endblock %}
