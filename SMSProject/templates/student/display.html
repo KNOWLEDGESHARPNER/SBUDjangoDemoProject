@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block title %}Student Details{% endblock %}
+{% block content %}
+    <h1>Student Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>USN</th>
+                <th>College</th>
+                <th>Degree</th>
+                <th>Branch</th>
+                <th>Semester</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in stu_objs %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.mob }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.usn }}</td>
+                <td>{{ student.college }}</td>
+                <td>{{ student.degree }}</td>
+                <td>{{ student.branch }}</td>
+                <td>{{ student.sem }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
