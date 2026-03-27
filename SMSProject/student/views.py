@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
+from .forms import ContactForm
 
 from .models import Student
 
@@ -88,3 +89,18 @@ def login(request):
             return HttpResponse('<h1>Login Failure!!!</h1>')
     else:
         return render(request,'student/login.html')
+    
+def contact(request):
+  if request.method == 'POST':
+      form=ContactForm(request.POST)
+      if form.is_valid():
+            subject=form.cleaned_data['subject']
+            message=form.cleaned_data['message']
+            email=form.cleaned_data['email']
+            
+            return HttpResponse(f'<h1>Form submitted successfully!!! Subject: {subject}<br> Message: {message}<br> Email: {email}</h1>')
+      else:
+            return HttpResponse('<h1>Form validation failed!!!</h1>')
+  else:
+        form=ContactForm()
+        return render(request,'student/contact.html',{'form':form})

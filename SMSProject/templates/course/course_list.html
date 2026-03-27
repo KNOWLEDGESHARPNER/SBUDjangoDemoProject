@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Courses</h1>
+<a href="{% url 'course_create' %}" class="btn btn-primary">Add Course</a>
+<div class="row">
+{% for course in courses %}
+<div class="col-md-4 mb-4">
+<div class="card h-100">
+{% if course.image %}
+<img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.name }}" style="height: 200px; object-fit: cover;">
+{% else %}
+<div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+<span class="text-muted">No Image</span>
+</div>
+{% endif %}
+<div class="card-body">
+<h5 class="card-title">{{ course.name }}</h5>
+<p class="card-text">{{ course.description }}</p>
+<p><strong>Professor:</strong> {{ course.professor.name }}</p>
+<p><strong>Semester:</strong> {{ course.semester }}</p>
+<a href="{% url 'course_detail' course.pk %}" class="btn btn-info">View Details</a>
+<a href="{% url 'course_edit' course.pk %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'course_delete' course.pk %}" class="btn btn-danger">Delete</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

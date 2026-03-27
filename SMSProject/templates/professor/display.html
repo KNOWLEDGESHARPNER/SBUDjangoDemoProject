@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block title %}Professor Details{% endblock %}
+{% block content %}
+    <h1>Professor Details</h1>
+    <div class="row">
+        {% for professor in prof_objs %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h6 class="mb-0">{{ professor.department }}</h6>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ professor.name }}</h5>
+                    <p class="card-text">
+                        <strong>Mobile:</strong> {{ professor.mob }}<br>
+                        <strong>Email:</strong> {{ professor.email }}<br>
+                        <strong>College:</strong> {{ professor.college }}<br>
+                        <strong>Specialization:</strong> {{ professor.specialization }}<br>
+                        <strong>Experience:</strong> {{ professor.experiance }} years
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

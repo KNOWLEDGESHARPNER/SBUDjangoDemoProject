@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container mt-5">
+<h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Course</h1>
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="form-group mb-3">
+{{ form.name.label_tag }}
+{{ form.name }}
+{% if form.name.errors %}<span class="text-danger">{{ form.name.errors }}</span>{% endif %}
+</div>
+<div class="form-group mb-3">
+{{ form.description.label_tag }}
+{{ form.description }}
+{% if form.description.errors %}<span class="text-danger">{{ form.description.errors }}</span>{% endif %}
+</div>
+<div class="form-group mb-3">
+{{ form.professor.label_tag }}
+{{ form.professor }}
+{% if form.professor.errors %}<span class="text-danger">{{ form.professor.errors }}</span>{% endif %}
+</div>
+<div class="form-group mb-3">
+{{ form.semester.label_tag }}
+{{ form.semester }}
+{% if form.semester.errors %}<span class="text-danger">{{ form.semester.errors }}</span>{% endif %}
+</div>
+<div class="form-group mb-3">
+{{ form.image.label_tag }}
+{{ form.image }}
+{% if form.instance.image %}<p><small class="text-muted">Current: <a href="{{ form.instance.image.url }}" target="_blank">{{ form.instance.image.name }}</a></small></p>{% endif %}
+{% if form.image.errors %}<span class="text-danger">{{ form.image.errors }}</span>{% endif %}
+</div>
+<button type="submit" class="btn btn-success">Save</button>
+<a href="{% url 'course_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+</div>
+{% endblock %}

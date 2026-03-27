@@ -11,3 +11,6 @@ class Student(models.Model):
     degree=models.CharField(max_length=50)
     branch=models.CharField(max_length=50)
     sem=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(8)])
+
+    def __str__(self):
+        return self.name

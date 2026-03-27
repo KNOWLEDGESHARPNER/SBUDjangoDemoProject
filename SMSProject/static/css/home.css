@@ -35,3 +35,35 @@ tbody tr:hover {
 tbody tr:nth-child(even):hover {
     background-color: #e0e0e0;
 }
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    color: #009879;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    line-height: 1.6;
+}
+
+.card-text strong {
+    color: #333;
+}
