@@ -77,8 +77,13 @@ WSGI_APPLICATION = 'SMSProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',#using mysql database
+        'NAME': 'studentdb',#database name
+        'USER': 'root',#database username
+        'PASSWORD': 'root',#database password
+        'HOST': 'localhost',#database host local system
+        'PORT': '3306', #database port number
+    
     }
 }
 

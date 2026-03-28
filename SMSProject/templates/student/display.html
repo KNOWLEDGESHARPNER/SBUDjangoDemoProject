@@ -30,8 +30,8 @@
                 <td>{{ student.degree }}</td>
                 <td>{{ student.branch }}</td>
                 <td>{{ student.sem }}</td>
-                <td><a href="{% url 'update' student.id %}">Update</a></td>
-                <td><a href="{% url 'delete' student.id %}">Delete</a></td>
+                <td><a href="{% url 'student:update' student.id %}">Update</a></td>
+                <td><a href="{% url 'student:delete' student.id %}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
