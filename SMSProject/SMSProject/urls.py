@@ -24,6 +24,7 @@ urlpatterns = [
     path('',include('student.urls')),#Linking student app urls
     path('prof/',include('professor.urls')),#Linking prof app urls
     path('course/', include('course.urls')),
+    path('chatbot/', include('chatbot.urls')),#Linking chatbot app urls
 ]
 
 if settings.DEBUG:
